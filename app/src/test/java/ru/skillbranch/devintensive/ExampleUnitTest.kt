@@ -4,11 +4,11 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.*
-import ru.skillbranch.devintensive.extensions.TimeUnits.*
-import ru.skillbranch.devintensive.extensions.TimeUnits.MINUTE
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils.toInitials
 import ru.skillbranch.devintensive.utils.Utils.transliteration
+import ru.skillbranch.devintensive.utils.Utils.truncate
+import ru.skillbranch.devintensive.utils.Utils.stripHTML
 import java.util.*
 
 /**
@@ -31,8 +31,6 @@ class ExampleUnitTest {
 
     @Test
     fun test_factory() {
-//        val user = User.makeUser("John Cena")
-//        val user2 = User.makeUser("John Wick")
         val user = User.makeUser("John Wick")
         val user2 = user.copy(id = "2", lastName = "Cena", lastVisit = Date())
         print(message = "$user\n$user2")
@@ -83,7 +81,7 @@ class ExampleUnitTest {
         val txtdate = Date()
         val imgdate = Date()
 
-        txtdate.add(-12, MINUTE)
+        txtdate.add(-12, TimeUnits.MINUTE)
         imgdate.add(-400, TimeUnits.DAY)
 
         println(Date().add(-50, TimeUnits.DAY).humanizeDiff())
