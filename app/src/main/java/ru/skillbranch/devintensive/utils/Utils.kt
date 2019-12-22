@@ -2,13 +2,15 @@ package ru.skillbranch.devintensive.utils
 
 import java.util.*
 
-    fun parseFullName(fullName:String?) : Pair<String?, String?>{
-        val parts : List<String>? = fullName?.split(" ")
+object Utils {
+
+    fun parseFullName(fullName: String?): Pair<String?, String?> {
+        val parts: List<String>? = fullName?.split(" ")
 
         var firstName: String? = parts?.getOrNull(0)
         var lastName: String? = parts?.getOrNull(1)
 
-        if(firstName.isNullOrBlank()) {
+        if (firstName.isNullOrBlank()) {
             firstName = null
         }
 
@@ -17,9 +19,9 @@ import java.util.*
         }
 
         if (firstName.isNullOrBlank()) {
-                if (lastName.isNullOrBlank()) {
-                    lastName = null
-                }
+            if (lastName.isNullOrBlank()) {
+                lastName = null
+            }
             firstName = lastName
             lastName = null
         }
@@ -32,54 +34,56 @@ import java.util.*
         val fN: Char? = if (!firstName.isNullOrBlank()) firstName[0] else Char.MIN_VALUE
         val lN: Char? = if (!lastName.isNullOrBlank()) lastName[0] else Char.MIN_VALUE
 
-        return if ((fN == Char.MIN_VALUE)&&(lN == Char.MIN_VALUE)) null else "$fN$lN"
+        return if ((fN == Char.MIN_VALUE) && (lN == Char.MIN_VALUE)) null else "$fN$lN"
     }
 
-    fun makeTextDays(days:Long):String {
-        val ones:Char = days.toString()[days.toString().length - 1]
+    fun makeTextDays(days: Long): String {
+        val ones: Char = days.toString()[days.toString().length - 1]
         return when {
             (days > 5) && (days < 21) -> "дней"
             ones == '1' -> "день"
             (ones == '2') || (ones == '3') || (ones == '4') -> "дня"
-            (ones == '5') || (ones == '6') || (ones == '7')||(ones == '8')||(ones == '9') -> "дней"
+            (ones == '5') || (ones == '6') || (ones == '7') || (ones == '8') || (ones == '9') -> "дней"
             else -> "дней"
         }
     }
 
-    fun makeTextHours(hours:Long):String {
-        val ones:Char = hours.toString()[hours.toString().length - 1]
+    fun makeTextHours(hours: Long): String {
+        val ones: Char = hours.toString()[hours.toString().length - 1]
         return when {
             (hours > 5) && (hours < 21) -> "часов"
             ones == '1' -> "час"
             (ones == '2') || (ones == '3') || (ones == '4') -> "часа"
-            (ones == '5') || (ones == '6') || (ones == '7')||(ones == '8')||(ones == '9') -> "часов"
+            (ones == '5') || (ones == '6') || (ones == '7') || (ones == '8') || (ones == '9') -> "часов"
             else -> "часов"
         }
     }
 
-    fun makeTextMinutes(minutes:Long):String {
-        val ones:Char = minutes.toString()[minutes.toString().length - 1]
+    fun makeTextMinutes(minutes: Long): String {
+        val ones: Char = minutes.toString()[minutes.toString().length - 1]
         return when {
             (minutes > 5) && (minutes < 21) -> "минут"
             ones == '1' -> "минута"
             (ones == '2') || (ones == '3') || (ones == '4') -> "минуты"
-            (ones == '5') || (ones == '6') || (ones == '7')||(ones == '8')||(ones == '9') -> "минут"
+            (ones == '5') || (ones == '6') || (ones == '7') || (ones == '8') || (ones == '9') -> "минут"
             else -> "минут"
         }
     }
 
-    fun makeTextSeconds(seconds:Long):String {
-        val ones:Char = seconds.toString()[seconds.toString().length - 1]
+    fun makeTextSeconds(seconds: Long): String {
+        val ones: Char = seconds.toString()[seconds.toString().length - 1]
         return when {
             (seconds > 5) && (seconds < 21) -> "секунд"
             ones.equals('1') -> "секунда"
             (ones.equals('2')) || (ones.equals('3')) || (ones.equals('4')) -> "секунды"
-            (ones.equals('5')) || (ones.equals('6')) || (ones.equals('7'))||(ones.equals('8'))||(ones.equals('9')) -> "секунд"
+            (ones.equals('5')) || (ones.equals('6')) || (ones.equals('7')) || (ones.equals('8')) || (ones.equals(
+                '9'
+            )) -> "секунд"
             else -> "секунд"
         }
     }
 
-    fun transliteration(payload:String, divider:String = " "):String{
+    fun transliteration(payload: String, divider: String = " "): String {
 
         var rez = ""
         val transmap = mapOf(
@@ -116,9 +120,10 @@ import java.util.*
             "э" to "e",
             "ю" to "yu",
             "я" to "ya",
-            " " to divider)
+            " " to divider
+        )
 
-        for(c in payload){
+        for (c in payload) {
             if (!c.isDigit()) {
                 if (c.isUpperCase()) {
                     rez = rez + transmap.get(c.toLowerCase().toString())?.toUpperCase().toString()
@@ -133,9 +138,9 @@ import java.util.*
         return rez
     }
 
-    fun String.truncate(strlen:Int = 16):String{
+    fun String.truncate(strlen: Int = 16): String {
 
-        var res:String = this.trim()
+        var res: String = this.trim()
 
         if (res.length > strlen) {
             res = res.substring(0, strlen).trim() + "..."
@@ -146,17 +151,17 @@ import java.util.*
         return res
     }
 
-    fun String.stripHTML():String {
+    fun String.stripHTML(): String {
 
-        var rez:String = this
+        var rez: String = this
         var tagbegin = 0
         var found = false
         var exit = false
         var i = 0
 
         while (!exit) {
-            while (!exit){
-                if (i>=rez.length) exit = true else{
+            while (!exit) {
+                if (i >= rez.length) exit = true else {
                     if (!found && rez[i].equals('<')) {
                         tagbegin = i
                         found = true
@@ -172,8 +177,8 @@ import java.util.*
             found = false
             exit = false
             i = 0
-            while (!exit){
-                if (i>=rez.length) exit = true else {
+            while (!exit) {
+                if (i >= rez.length) exit = true else {
                     if (!found && rez[i].equals('&')) {
                         tagbegin = i
                         found = true
@@ -196,3 +201,4 @@ import java.util.*
 
         return rez
     }
+}

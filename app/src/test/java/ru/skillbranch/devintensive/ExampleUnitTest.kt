@@ -6,6 +6,10 @@ import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.*
+import ru.skillbranch.devintensive.utils.Utils.toInitials
+import ru.skillbranch.devintensive.utils.Utils.transliteration
+import ru.skillbranch.devintensive.utils.Utils.truncate
+import ru.skillbranch.devintensive.utils.Utils.stripHTML
 import java.util.*
 
 /**

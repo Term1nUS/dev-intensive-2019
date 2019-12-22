@@ -1,6 +1,10 @@
 package ru.skillbranch.devintensive.extensions
 
 import ru.skillbranch.devintensive.utils.*
+import ru.skillbranch.devintensive.utils.Utils.makeTextDays
+import ru.skillbranch.devintensive.utils.Utils.makeTextHours
+import ru.skillbranch.devintensive.utils.Utils.makeTextMinutes
+import ru.skillbranch.devintensive.utils.Utils.makeTextSeconds
 
 import java.lang.Exception
 import java.lang.IllegalStateException

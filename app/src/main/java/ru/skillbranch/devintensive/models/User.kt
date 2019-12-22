@@ -1,6 +1,7 @@
 package ru.skillbranch.devintensive.models
 
 import ru.skillbranch.devintensive.utils.*
+import ru.skillbranch.devintensive.utils.Utils.parseFullName
 import java.util.*
 
 data class User(
