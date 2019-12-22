@@ -5,10 +5,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
-import ru.skillbranch.devintensive.utils.Utils.toInitials
-import ru.skillbranch.devintensive.utils.Utils.transliteration
-import ru.skillbranch.devintensive.utils.Utils.truncate
-import ru.skillbranch.devintensive.utils.Utils.stripHTML
+import ru.skillbranch.devintensive.utils.*
 import java.util.*
 
 /**

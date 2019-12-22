@@ -1,6 +1,6 @@
 package ru.skillbranch.devintensive.models
 
-import ru.skillbranch.devintensive.utils.Utils
+import ru.skillbranch.devintensive.utils.*
 import java.util.*
 
 data class User(
@@ -21,7 +21,7 @@ data class User(
 
 //            val parts : List<String>? = fullName?.split(" ")
 
-            val (firstName, lastName) = Utils.parseFullName(fullName)
+            val (firstName, lastName) = parseFullName(fullName)
 
             return User(
                 id = "$lastID",
