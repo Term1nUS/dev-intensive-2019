@@ -35,7 +35,7 @@ class ExampleUnitTest {
 //        val user2 = User.makeUser("John Wick")
         val user = User.makeUser("John Wick")
         val user2 = user.copy(id = "2", lastName = "Cena", lastVisit = Date())
-        print(message = "$user{\n}$user2")
+        print(message = "$user\n$user2")
     }
 
     @Test
@@ -126,11 +126,10 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_htmlstrip() {
+    fun test_stripHTML() {
 
         val html = "<p class=\"title\">&nbsp;A    A</p>"
 
-        println("".stripHTML())
         println(html.stripHTML())
     }
 

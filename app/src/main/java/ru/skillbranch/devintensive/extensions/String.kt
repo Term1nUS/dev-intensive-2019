@@ -14,9 +14,9 @@ fun String.truncate(strlen:Int = 16):String{
     return res
 }
 
-fun String.stripHTML(html:String = this):String {
+fun String.stripHTML():String {
 
-    var rez:String = html
+    var rez:String = this
     var tagbegin = 0
     var found = false
     var exit = false
