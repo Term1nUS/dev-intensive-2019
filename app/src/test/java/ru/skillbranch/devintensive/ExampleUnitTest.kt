@@ -80,12 +80,11 @@ class ExampleUnitTest {
         val txtdate = Date()
         val imgdate = Date()
 
-        txtdate.add(-12, TimeUnits.MINUTE)
+        txtdate.add(-2, TimeUnits.MINUTE)
         imgdate.add(-400, TimeUnits.DAY)
 
         println(Date().add(-50, TimeUnits.DAY).humanizeDiff())
         println(Date().format("hh:MM:ss dd.MM.yy"))
-        println(toInitials(user.firstName, user.lastName))
 
         val txtMessage = BaseMessage.makeMessage(
             user,
@@ -108,12 +107,15 @@ class ExampleUnitTest {
 
     @Test
     fun test_plural() {
-        for (x in 0..11) println(TimeUnits.DAY.plural(x))
+        println(TimeUnits.SECOND.plural(1))
+        println(TimeUnits.MINUTE.plural(4))
+        println(TimeUnits.HOUR.plural(19))
+        println(TimeUnits.DAY.plural(222))
     }
 
     @Test
     fun test_toInitials(){
-        println(toInitials("andrew", "romanowsky"))
+        println(toInitials("John", "doe"))
     }
 
     @Test

@@ -61,7 +61,7 @@ object Utils {
         val ones: Char = minutes.toString()[minutes.toString().length - 1]
         return when {
             (minutes > 5) && (minutes < 21) -> "минут"
-            ones == '1' -> "минута"
+            ones == '1' -> "минуту"
             (ones == '2') || (ones == '3') || (ones == '4') -> "минуты"
             (ones == '5') || (ones == '6') || (ones == '7') || (ones == '8') || (ones == '9') -> "минут"
             else -> "минут"
@@ -72,7 +72,7 @@ object Utils {
         val ones: Char = seconds.toString()[seconds.toString().length - 1]
         return when {
             (seconds > 5) && (seconds < 21) -> "секунд"
-            ones.equals('1') -> "секунда"
+            ones.equals('1') -> "секунду"
             (ones.equals('2')) || (ones.equals('3')) || (ones.equals('4')) -> "секунды"
             (ones.equals('5')) || (ones.equals('6')) || (ones.equals('7')) || (ones.equals('8')) || (ones.equals(
                 '9'
