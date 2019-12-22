@@ -36,8 +36,8 @@ fun Date.humanizeDiff():String {
 
 
     humanized = when {
-        diff <= 1*SECOND -> "только что"
-        (diff > 1*SECOND)&&(diff < 45*SECOND) -> "несколько секунд назад"
+        diff <= SECOND -> "только что"
+        (diff > SECOND)&&(diff < 45*SECOND) -> "несколько секунд назад"
         (diff >= 45*SECOND)&&(diff < 75*SECOND) -> "минуту назад"
         (diff >= 75*SECOND)&&(diff < 45*MINUTE) -> "$diffMinutes ${makeTextMinutes(diff/MINUTE)} назад"
         (diff >= 45*MINUTE)&&(diff < 75*MINUTE) -> "час назад"

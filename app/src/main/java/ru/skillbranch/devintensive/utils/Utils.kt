@@ -29,8 +29,8 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? {
 
-        val fN: Char? = if (!firstName.isNullOrBlank()) firstName[0] else Char.MIN_VALUE
-        val lN: Char? = if (!lastName.isNullOrBlank()) lastName[0] else Char.MIN_VALUE
+        val fN: Char? = if (!firstName.isNullOrBlank()) firstName[0].toUpperCase() else Char.MIN_VALUE
+        val lN: Char? = if (!lastName.isNullOrBlank()) lastName[0].toUpperCase() else Char.MIN_VALUE
 
         return if ((fN == Char.MIN_VALUE) && (lN == Char.MIN_VALUE)) null else "$fN$lN"
     }

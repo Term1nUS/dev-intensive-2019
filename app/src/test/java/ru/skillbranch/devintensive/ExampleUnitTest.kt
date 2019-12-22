@@ -112,6 +112,11 @@ class ExampleUnitTest {
     }
 
     @Test
+    fun test_toInitials(){
+        println(toInitials("andrew", "romanowsky"))
+    }
+
+    @Test
     fun test_truncate() {
         println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate(8))
         println("A         ".truncate())
