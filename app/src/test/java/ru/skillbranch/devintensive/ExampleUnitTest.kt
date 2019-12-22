@@ -8,8 +8,6 @@ import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils.toInitials
 import ru.skillbranch.devintensive.utils.Utils.transliteration
 import java.util.*
-import ru.skillbranch.devintensive.utils.Utils.truncate
-import ru.skillbranch.devintensive.utils.Utils.stripHTML
 
 
 /**
