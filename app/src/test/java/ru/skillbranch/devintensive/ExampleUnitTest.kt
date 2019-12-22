@@ -5,12 +5,12 @@ import org.junit.Test
 import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
-import ru.skillbranch.devintensive.utils.*
 import ru.skillbranch.devintensive.utils.Utils.toInitials
 import ru.skillbranch.devintensive.utils.Utils.transliteration
+import java.util.*
 import ru.skillbranch.devintensive.utils.Utils.truncate
 import ru.skillbranch.devintensive.utils.Utils.stripHTML
-import java.util.*
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
