@@ -80,10 +80,10 @@ class ExampleUnitTest {
         val txtdate = Date()
         val imgdate = Date()
 
-        txtdate.add(-2, TimeUnits.MINUTE)
+        txtdate.add(1, TimeUnits.DAY)
         imgdate.add(-400, TimeUnits.DAY)
 
-        println(Date().add(-50, TimeUnits.DAY).humanizeDiff())
+        println(Date().add(32, TimeUnits.DAY).humanizeDiff())
         println(Date().format("hh:MM:ss dd.MM.yy"))
 
         val txtMessage = BaseMessage.makeMessage(
@@ -115,7 +115,7 @@ class ExampleUnitTest {
 
     @Test
     fun test_toInitials(){
-        println(toInitials("John", "doe"))
+        println(toInitials("John", " "))
     }
 
     @Test

@@ -6,6 +6,7 @@ import ru.skillbranch.devintensive.utils.Utils.makeTextMinutes
 import ru.skillbranch.devintensive.utils.Utils.makeTextSeconds
 
 import java.lang.Exception
+import java.lang.Math.abs
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -13,6 +14,7 @@ const val SECOND = 1000L
 const val MINUTE = 60 * SECOND
 const val HOUR = 60 * MINUTE
 const val DAY = 24 * HOUR
+
 
 
 
@@ -25,18 +27,13 @@ fun Date.humanizeDiff():String {
 
     val diff:Long = Date().time - this.time
     val humanized:String
-    val diffMinutes:String
-    val diffHours:String
-    val diffDays:String
-
-    diffMinutes = (diff/MINUTE).toString()
-    diffHours = (diff/HOUR).toString()
-    diffDays = (diff/DAY).toString()
-
-
+    val diffSeconds = (abs(diff/SECOND)).toString()
+    val diffMinutes:String = (abs(diff/MINUTE)).toString()
+    val diffHours:String = (abs(diff/HOUR)).toString()
+    val diffDays:String = (abs(diff/DAY)).toString()
 
     humanized = when {
-        diff <= SECOND -> "только что"
+        (diff <= SECOND)&&(diff >= 0) -> "только что"
         (diff > SECOND)&&(diff < 45*SECOND) -> "несколько секунд назад"
         (diff >= 45*SECOND)&&(diff < 75*SECOND) -> "минуту назад"
         (diff >= 75*SECOND)&&(diff < 45*MINUTE) -> "$diffMinutes ${makeTextMinutes(diff/MINUTE)} назад"
@@ -44,6 +41,11 @@ fun Date.humanizeDiff():String {
         (diff >= 75*MINUTE)&&(diff < 22*HOUR) -> "$diffHours ${makeTextHours(diff/HOUR)} назад"
         (diff >= 22*HOUR)&&(diff < 26*HOUR) -> "день назад"
         (diff >= 26*HOUR)&&(diff <= 360*DAY) -> "$diffDays ${makeTextDays(diff/DAY)} назад"
+        (-diff >= DAY)&&(-diff <= 30*DAY) -> "через $diffDays ${makeTextDays(-diff/DAY)}"
+        (-diff < DAY)&&(-diff > HOUR) -> "через $diffHours ${makeTextHours(-diff/HOUR)}"
+        (-diff <= HOUR)&&(-diff >= MINUTE) -> "через $diffMinutes ${makeTextMinutes(-diff/MINUTE)}"
+        (-diff > 0)&&(-diff < MINUTE) -> "через несколько секунд"
+        (-diff > 30*DAY) -> "через $diffDays ${makeTextDays(-diff/DAY)}"
         diff > 360*HOUR -> "более года назад"
         else -> throw Exception("Wrong time interval!")
     }
