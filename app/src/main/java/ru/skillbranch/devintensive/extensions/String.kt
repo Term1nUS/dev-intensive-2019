@@ -14,7 +14,7 @@ import kotlin.String
         return res
     }
 
-    fun String.stripHTML(): String {
+    fun String.stripHtml(): String {
 
         var rez: String = this
         var tagbegin = 0

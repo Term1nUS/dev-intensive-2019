@@ -127,7 +127,7 @@ class ExampleUnitTest {
 
         val html = "<p class=\"title\">&nbsp;A    A</p>"
 
-        println(html.stripHTML())
+        println(html.stripHtml())
     }
 
     @Test
