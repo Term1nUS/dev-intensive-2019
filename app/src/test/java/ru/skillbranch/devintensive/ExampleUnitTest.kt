@@ -115,7 +115,7 @@ class ExampleUnitTest {
 
     @Test
     fun test_toInitials(){
-        println(toInitials("John", " "))
+        println(toInitials("", ""))
     }
 
     @Test
